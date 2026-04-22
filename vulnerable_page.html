@@ -1,0 +1,467 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>SafeByte - XSS Demo</title>
+    <style>
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+
+      body {
+        font-family: 'Segoe UI', Arial, sans-serif;
+        background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
+        color: #eee;
+        padding: 40px;
+        min-height: 100vh;
+      }
+
+      .logo {
+        position: absolute;
+        top: 20px;
+        right: 30px;
+        width: 150px;
+        background: rgba(255,255,255,0.05);
+        padding: 8px;
+        border-radius: 8px;
+        text-align: center;
+        color: #00d4ff;
+        font-weight: bold;
+        font-size: 14px;
+      }
+
+      h1 {
+        font-size: 48px;
+        background: linear-gradient(45deg, #00d4ff, #ff6600);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin-bottom: 10px;
+      }
+
+      .subtitle {
+        color: #888;
+        font-size: 18px;
+        margin-bottom: 24px;
+      }
+
+      .nav-links {
+        margin-bottom: 24px;
+      }
+
+      .nav-links a {
+        color: #00d4ff;
+        text-decoration: none;
+        font-size: 16px;
+        margin-right: 20px;
+        transition: all 0.3s;
+      }
+
+      .nav-links a:hover {
+        text-decoration: underline;
+      }
+
+      .defense-banner {
+        border-radius: 10px;
+        padding: 16px 18px;
+        margin-bottom: 24px;
+        font-size: 15px;
+        line-height: 1.5;
+      }
+
+      .defense-on {
+        background: rgba(0,255,136,0.12);
+        border-left: 4px solid #00ff88;
+        color: #bff7d7;
+      }
+
+      .defense-off {
+        background: rgba(255,170,0,0.12);
+        border-left: 4px solid #ffaa00;
+        color: #ffdba0;
+      }
+
+      .toggle-row {
+        margin-bottom: 24px;
+      }
+
+      .toggle-btn {
+        display: inline-block;
+        text-decoration: none;
+        border-radius: 8px;
+        padding: 12px 22px;
+        font-size: 14px;
+        font-weight: bold;
+        margin-right: 12px;
+        text-transform: uppercase;
+        letter-spacing: 0.8px;
+      }
+
+      .toggle-enable {
+        background: rgba(0,255,136,0.12);
+        border: 1px solid rgba(0,255,136,0.28);
+        color: #00ff88;
+      }
+
+      .toggle-disable {
+        background: rgba(255,153,0,0.12);
+        border: 1px solid rgba(255,153,0,0.28);
+        color: #ffb347;
+      }
+
+      .toggle-btn:hover {
+        filter: brightness(1.15);
+      }
+
+      .card {
+        background: rgba(25, 25, 40, 0.9);
+        border: 1px solid #333;
+        border-radius: 12px;
+        padding: 25px;
+        margin-bottom: 20px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+      }
+
+      .card h2 {
+        color: #00d4ff;
+        font-size: 22px;
+        margin-bottom: 15px;
+      }
+
+      .card h3 {
+        color: #00d4ff;
+        font-size: 18px;
+        margin-bottom: 15px;
+      }
+
+      .post-meta {
+        font-size: 12px;
+        color: #888;
+        margin-bottom: 12px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+
+      .post-body {
+        font-size: 15px;
+        color: #ccc;
+        line-height: 1.6;
+      }
+
+      .warning-banner {
+        background: rgba(255, 170, 0, 0.1);
+        border-left: 4px solid #ffaa00;
+        padding: 12px 16px;
+        border-radius: 4px;
+        margin-bottom: 20px;
+        font-size: 14px;
+        color: #ffaa00;
+      }
+
+      .comment {
+        background: rgba(0, 0, 0, 0.3);
+        padding: 12px 15px;
+        border-radius: 6px;
+        margin-bottom: 10px;
+        border-left: 3px solid #00d4ff;
+      }
+
+      .comment-author {
+        font-weight: bold;
+        font-size: 13px;
+        margin-bottom: 5px;
+        color: #00d4ff;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+
+      .comment-text {
+        font-size: 14px;
+        color: #ccc;
+        white-space: pre-wrap;
+        word-break: break-word;
+      }
+
+      label {
+        display: block;
+        color: #aaa;
+        font-size: 13px;
+        margin-bottom: 8px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+
+      input, textarea {
+        width: 100%;
+        background: rgba(10, 10, 20, 0.8);
+        border: 1px solid #444;
+        border-radius: 6px;
+        padding: 12px;
+        color: #fff;
+        font-size: 14px;
+        font-family: inherit;
+        margin-bottom: 16px;
+        transition: all 0.3s;
+      }
+
+      input:focus, textarea:focus {
+        outline: none;
+        border-color: #00d4ff;
+        box-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
+      }
+
+      button {
+        background: linear-gradient(45deg, #00d4ff, #0099cc);
+        color: white;
+        border: none;
+        border-radius: 8px;
+        padding: 12px 28px;
+        font-size: 15px;
+        font-weight: bold;
+        cursor: pointer;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transition: all 0.3s;
+      }
+
+      button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(0, 212, 255, 0.5);
+      }
+
+      .payload-hint {
+        margin-top: 16px;
+        background: rgba(0, 0, 0, 0.4);
+        border-left: 3px solid #ff6600;
+        padding: 12px 16px;
+        border-radius: 4px;
+        font-size: 13px;
+        color: #aaa;
+      }
+
+      .payload-hint strong {
+        color: #ff6600;
+      }
+
+      code {
+        background: rgba(0, 0, 0, 0.6);
+        color: #00d4ff;
+        padding: 3px 7px;
+        border-radius: 4px;
+        font-size: 13px;
+        font-family: 'Courier New', monospace;
+      }
+
+      .back-link {
+        display: inline-block;
+        margin-top: 10px;
+        color: #00d4ff;
+        text-decoration: none;
+        font-size: 14px;
+      }
+
+      .back-link:hover { text-decoration: underline; }
+    </style>
+  </head>
+
+  <body>
+    <div class="logo">SafeByte</div>
+
+    <h1>XSS Demonstration</h1>
+    <div class="subtitle">Attack 1 — Stored Cross-Site Scripting</div>
+
+    <div class="nav-links">
+      <a href="/">→ Home</a>
+      <a href="/dashboard">→ Dashboard</a>
+      <a href="/attack-history">→ Attack History</a>
+      <a href="/logs">→ View Logs</a>
+    </div>
+
+    <div id="defenseBanner" class="defense-banner"></div>
+
+    <div class="toggle-row">
+      <a href="#" class="toggle-btn toggle-enable" onclick="enableXssDefense(); return false;">Enable XSS Defense</a>
+      <a href="#" class="toggle-btn toggle-disable" onclick="disableXssDefense(); return false;">Disable XSS Defense</a>
+    </div>
+
+    <div class="card">
+      <h2>📋 CRTE Status Update</h2>
+      <div class="post-meta">Posted by <strong style="color:#00d4ff;">admin</strong> · demo only</div>
+      <div class="warning-banner">
+        ⚠️ This comment section is intentionally used to demonstrate stored XSS attack behavior and safe rendering behavior.
+      </div>
+      <div class="post-body">
+        This is a demo post inside the CRTE C-based web application.
+        When defense is off, script payloads entered into comments will execute when rendered.
+        When defense is on, the exact same payload is shown safely as text instead.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>💬 Comments</h2>
+      <div id="comments"></div>
+    </div>
+
+    <div class="card">
+      <h3>➕ Add a Comment</h3>
+      <label for="authorInput">Name (optional)</label>
+      <input
+        id="authorInput"
+        type="text"
+        placeholder="anonymous"
+        autocomplete="off"
+      />
+
+      <label for="commentInput">Comment</label>
+      <textarea
+        id="commentInput"
+        rows="3"
+        placeholder="Type your comment..."
+      ></textarea>
+
+      <button type="button" onclick="addComment()">Submit Comment</button>
+
+      <div class="payload-hint">
+        <strong>XSS Attack 1 payload:</strong><br />
+        <code>&lt;script&gt;alert('XSS - Attack 1')&lt;/script&gt;</code>
+      </div>
+    </div>
+
+    <a href="/" class="back-link">← Back to Home</a>
+
+    <script>
+      const storedComments = [];
+      let xssDefenseState =
+        (typeof XSS_DEFENSE !== "undefined") ? XSS_DEFENSE : 0;
+
+      function escapeHtml(value) {
+        return value
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/"/g, "&quot;")
+          .replace(/'/g, "&#39;");
+      }
+
+      async function refreshDefenseState() {
+  try {
+    const res = await fetch("/xss-defense-status");
+    const text = await res.text();
+    xssDefenseState = parseInt(text.trim(), 10) || 0;
+    updateDefenseBanner();
+    renderComments();
+  } catch (e) {
+    console.error("Could not refresh XSS defense state:", e);
+  }
+}
+
+async function enableXssDefense() {
+  try {
+    await fetch("/enable-xss-defense");
+    await refreshDefenseState();
+  } catch (e) {
+    console.error("Failed to enable XSS defense:", e);
+  }
+}
+
+async function disableXssDefense() {
+  try {
+    await fetch("/disable-xss-defense");
+    await refreshDefenseState();
+  } catch (e) {
+    console.error("Failed to disable XSS defense:", e);
+  }
+}
+      function updateDefenseBanner() {
+        const banner = document.getElementById("defenseBanner");
+        if (!banner) return;
+
+        if (xssDefenseState) {
+          banner.className = "defense-banner defense-on";
+          banner.innerHTML =
+            "<strong>🛡️ XSS Defense Status: ON</strong><br>" +
+            "Stored XSS payloads will be shown safely instead of executing.";
+        } else {
+          banner.className = "defense-banner defense-off";
+          banner.innerHTML =
+            "<strong>⚠️ XSS Defense Status: OFF</strong><br>" +
+            "The page is intentionally vulnerable. Submitted script payloads will execute when comments are rendered.";
+        }
+      }
+
+      function addComment() {
+        const authorField = document.getElementById("authorInput");
+        const commentField = document.getElementById("commentInput");
+
+        const author = authorField.value.trim() || "anonymous";
+        const text = commentField.value.trim();
+
+        if (!text) {
+          return;
+        }
+
+        if (text.includes("<script>") && text.includes("XSS - Attack 1")) {
+          fetch("/log-attack", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              actor: author,
+              type: "Stored XSS",
+              description: xssDefenseState
+                ? "Stored XSS payload submitted, but blocked by XSS defense: <script>alert('XSS - Attack 1')<\/script>"
+                : "XSS Attack 1 payload submitted via comment form: <script>alert('XSS - Attack 1')<\/script>"
+            })
+          });
+        }
+
+        storedComments.push({ author: author, text: text });
+        renderComments();
+        commentField.value = "";
+      }
+
+      function renderComments() {
+        const commentsDiv = document.getElementById("comments");
+        let html = "";
+
+        storedComments.forEach((c) => {
+          const safeAuthor = escapeHtml(c.author);
+
+          if (xssDefenseState) {
+            const safeText = escapeHtml(c.text);
+
+            html +=
+              "<div class='comment'>" +
+              "<div class='comment-author'>" + safeAuthor + "</div>" +
+              "<div class='comment-text'>" + safeText + "</div>" +
+              "</div>";
+          } else {
+            html +=
+              "<div class='comment'>" +
+              "<div class='comment-author'>" + safeAuthor + "</div>" +
+              "<div class='comment-text'>" + c.text + "</div>" +
+              "</div>";
+          }
+        });
+
+        commentsDiv.innerHTML = html;
+
+        if (!xssDefenseState) {
+          const scripts = commentsDiv.querySelectorAll("script");
+          scripts.forEach((s) => {
+            try {
+              eval(s.textContent);
+            } catch (e) {
+              console.error("Error executing comment script:", e);
+            }
+          });
+        }
+      }
+
+      storedComments.push({
+        author: "system",
+        text: "Welcome to the Attack 1 demo. This initial comment is safe."
+      });
+
+      updateDefenseBanner();
+      renderComments();
+    </script>
+  </body>
+</html>

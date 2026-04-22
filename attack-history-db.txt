@@ -1,0 +1,97 @@
+2026-04-09 11:35:24|127.0.0.1|SQL Injection|Triggered SQL injection attack via /attack-sql
+2026-04-09 11:35:57|127.0.0.1|SQL Injection|Triggered SQL injection attack via /attack-sql
+2026-04-09 11:36:09|127.0.0.1|SQL Injection|Triggered SQL injection attack via /attack-sql
+2026-04-09 11:36:31|127.0.0.1|SQL Injection|Triggered SQL injection attack via /attack-sql
+2026-04-09 11:37:50|127.0.0.1|SQL Injection|Triggered SQL injection attack via /attack-sql
+2026-04-09 11:38:13|127.0.0.1|SQL Injection|Triggered SQL injection attack via /attack-sql
+2026-04-09 11:40:40|127.0.0.1|SQL Injection|Triggered SQL injection attack via /attack-sql
+2026-04-09 12:01:05|127.0.0.1|SQL Injection|Triggered SQL injection attack via /attack-sql
+2026-04-09 12:01:34|127.0.0.1|SQL Injection|Triggered SQL injection attack via /attack-sql
+2026-04-09 12:04:41|127.0.0.1|SQL Injection|Triggered SQL injection attack via /attack-sql
+2026-04-09 12:05:17|127.0.0.1|SQL Injection|Triggered SQL injection attack via /attack-sql
+2026-04-09 12:09:24|127.0.0.1|SQL Injection|Triggered SQL injection attack via /attack-sql
+2026-04-09 12:20:56|Attacker|SQL Injection|SQLite SQL injection – dumped all users
+2026-04-09 12:21:24|127.0.0.1|SQL Injection|Triggered SQL injection attack via /attack-sql
+2026-04-09 12:21:24|Attacker|SQL Injection|SQLite SQL injection – dumped all users
+2026-04-09 12:22:00|127.0.0.1|SQL Injection|Triggered SQL injection attack via /attack-sql
+2026-04-09 12:22:00|Attacker|SQL Injection|SQLite SQL injection – dumped all users
+2026-04-09 18:42:40|pooja|Stored XSS|XSS Attack 1 payload submitted via comment form: <script>alert('XSS - Attack 1')</script>
+2026-04-09 18:53:05|127.0.0.1|DDoS|DDoS launched – 30 threads x 10 requests → http://192.168.1.100:8080
+2026-04-09 18:53:17|127.0.0.1|DDoS|DDoS launched – 30 threads x 100 requests → http://192.168.1.100:8080
+2026-04-09 18:53:41|127.0.0.1|SQL Injection|Triggered SQL injection attack via /attack-sql
+2026-04-09 18:53:41|Attacker|SQL Injection|SQLite SQL injection – dumped all users
+2026-04-09 19:43:52|127.0.0.1|DDoS|DDoS launched – 30 threads x 100 requests → http://192.168.1.100:8080
+2026-04-09 19:44:07|127.0.0.1|DDoS|DDoS launched – 30 threads x 100 requests → http://192.168.1.100:8080
+2026-04-09 19:44:12|127.0.0.1|DDoS|DDoS launched – 30 threads x 500 requests → http://192.168.1.100:8080
+2026-04-09 19:44:16|127.0.0.1|DDoS|DDoS burst detected – 15 requests in 5s from 127.0.0.1
+2026-04-09 19:44:16|127.0.0.1|DDoS|DDoS launched – 50 threads x 500 requests → http://192.168.1.100:8080
+2026-04-09 19:44:25|127.0.0.1|DDoS Defense Enabled|Administrator enabled DDoS rate-limit protection
+2026-04-09 19:44:31|127.0.0.1|DDoS|DDoS launched – 30 threads x 100 requests → http://192.168.1.100:8080
+2026-04-09 19:44:35|127.0.0.1|DDoS|DDoS launched – 30 threads x 100 requests → http://192.168.1.100:8080
+2026-04-09 19:50:18|127.0.0.1|DDoS|DDoS launched – 30 threads x 100 requests → http://192.168.1.100:8080
+2026-04-09 19:50:42|127.0.0.1|DDoS Defense Disabled|Administrator disabled DDoS rate-limit protection
+2026-04-09 19:50:47|127.0.0.1|DDoS|DDoS launched – 30 threads x 100 requests → http://192.168.1.100:8080
+2026-04-09 19:51:01|127.0.0.1|DDoS|DDoS launched – 30 threads x 500 requests → http://192.168.1.100:8080
+2026-04-09 19:51:05|127.0.0.1|DDoS|DDoS burst detected – 15 requests in 5s from 127.0.0.1
+2026-04-09 19:51:08|127.0.0.1|DDoS|DDoS launched – 30 threads x 500 requests → http://192.168.1.100:8080
+2026-04-09 19:51:11|127.0.0.1|DDoS|DDoS burst detected – 15 requests in 5s from 127.0.0.1
+2026-04-09 19:51:12|127.0.0.1|DDoS|DDoS launched – 50 threads x 500 requests → http://192.168.1.100:8080
+2026-04-09 19:51:17|127.0.0.1|DDoS|DDoS burst detected – 15 requests in 5s from 127.0.0.1
+2026-04-09 19:51:23|127.0.0.1|DDoS Defense Enabled|Administrator enabled DDoS rate-limit protection
+2026-04-09 19:51:31|127.0.0.1|DDoS|DDoS launched – 30 threads x 100 requests → http://192.168.1.100:8080
+2026-04-09 19:52:01|127.0.0.1|DDoS|DDoS launched – 15 threads x 100 requests → http://192.168.1.100:8080
+2026-04-09 20:47:27|127.0.0.1|SQL Injection|Triggered SQL injection attack via /attack-sql
+2026-04-09 20:47:27|Attacker|SQL Injection|SQLite SQL injection – dumped all users
+2026-04-09 20:47:56|127.0.0.1|SQL Injection|Triggered SQL injection attack via /attack-sql
+2026-04-09 20:47:57|Attacker|SQL Injection|SQLite SQL injection – dumped all users
+2026-04-09 20:48:32|127.0.0.1|DDoS|DDoS launched – 15 threads x 100 requests → http://192.168.1.100:8080
+2026-04-09 20:48:58|127.0.0.1|DDoS Defense Enabled|Administrator enabled DDoS rate-limit protection
+2026-04-09 20:49:15|127.0.0.1|DDoS|DDoS launched – 30 threads x 100 requests → http://192.168.1.100:8080
+2026-04-09 20:55:58|anonymous|Stored XSS|XSS Attack 1 payload submitted via comment form: <script>alert('XSS - Attack 1')</script>
+2026-04-09 21:46:50|127.0.0.1|SQL Injection|Triggered SQL injection attack via /attack-sql
+2026-04-09 21:46:50|Attacker|SQL Injection|SQLite SQL injection – dumped all users
+2026-04-09 21:46:56|127.0.0.1|SQL Defense Enabled|Administrator enabled SQL injection protection
+2026-04-09 21:52:12|127.0.0.1|SQL Injection|Triggered SQL injection attack via /attack-sql
+2026-04-09 21:52:12|Attacker|SQL Injection|SQLite SQL injection – dumped all users
+2026-04-21 12:52:16|127.0.0.1|SQL Injection|Triggered SQL injection attack via /attack-sql
+2026-04-21 12:52:22|Attacker|SQL Injection|SQLite SQL injection – dumped all users
+2026-04-21 15:55:25|127.0.0.1|SQL Injection|Triggered SQL injection attack via /attack-sql
+2026-04-21 15:55:25|Attacker|SQL Injection|SQLite SQL injection – dumped all users
+2026-04-21 15:57:07|127.0.0.1|SQL Defense Enabled|Administrator enabled SQL injection protection
+2026-04-21 15:57:23|127.0.0.1|SQL Injection attempt blocked|Blocked /attack-sql because SQL defense is enabled
+2026-04-21 15:57:32|127.0.0.1|SQL Defense Enabled|Administrator enabled SQL injection protection
+2026-04-21 15:57:33|127.0.0.1|SQL Defense Disabled|Administrator disabled SQL injection protection
+2026-04-21 15:57:35|127.0.0.1|SQL Injection|Triggered SQL injection attack via /attack-sql
+2026-04-21 15:57:35|Attacker|SQL Injection|SQLite SQL injection – dumped all users
+2026-04-21 15:58:47|127.0.0.1|SQL Injection|Triggered SQL injection attack via /attack-sql
+2026-04-21 15:58:47|Attacker|SQL Injection|SQLite SQL injection – dumped all users
+2026-04-21 16:00:00|127.0.0.1|SQL Defense Enabled|Administrator enabled SQL injection protection
+2026-04-21 16:01:20|127.0.0.1|SQL Injection attempt blocked|Detected suspicious SQL patterns in form input
+2026-04-21 16:02:06|127.0.0.1|SQL Injection attempt blocked|Blocked /attack-sql because SQL defense is enabled
+2026-04-21 16:02:11|127.0.0.1|SQL Defense Enabled|Administrator enabled SQL injection protection
+2026-04-21 16:02:12|127.0.0.1|SQL Defense Disabled|Administrator disabled SQL injection protection
+2026-04-21 16:02:14|127.0.0.1|SQL Injection|Triggered SQL injection attack via /attack-sql
+2026-04-21 16:02:14|Attacker|SQL Injection|SQLite SQL injection – dumped all users
+2026-04-21 16:02:28|127.0.0.1|SQL Injection (defense OFF)|Suspicious SQL patterns detected but defense is disabled
+2026-04-22 11:09:44|akshiith|Stored XSS|XSS Attack 1 payload submitted via comment form: <script>alert('XSS - Attack 1')</script>
+2026-04-22 11:10:33|akshith|Stored XSS|XSS Attack 1 payload submitted via comment form: <script>alert('XSS - Attack 1')</script>
+2026-04-22 11:11:52|akshith|Stored XSS|XSS Attack 1 payload submitted via comment form: <script>alert('XSS - Attack 1')</script>
+2026-04-22 11:29:39|akshith|Stored XSS|Stored XSS payload submitted, but blocked by XSS defense: <script>alert('XSS - Attack 1')</script>
+2026-04-22 11:29:50|akshith hi|Stored XSS|XSS Attack 1 payload submitted via comment form: <script>alert('XSS - Attack 1')</script>
+2026-04-22 11:30:08|hihi|Stored XSS|Stored XSS payload submitted, but blocked by XSS defense: <script>alert('XSS - Attack 1')</script>
+2026-04-22 11:44:00|ash|Stored XSS|XSS Attack 1 payload submitted via comment form: <script>alert('XSS - Attack 1')</script>
+2026-04-22 11:44:18|akshith|Stored XSS|Stored XSS payload submitted, but blocked by XSS defense: <script>alert('XSS - Attack 1')</script>
+2026-04-22 11:57:06|akshith|Stored XSS|XSS Attack 1 payload submitted via comment form: <script>alert('XSS - Attack 1')</script>
+2026-04-22 11:57:17|akshith|Stored XSS|Stored XSS payload submitted, but blocked by XSS defense: <script>alert('XSS - Attack 1')</script>
+2026-04-22 11:57:22|akshith|Stored XSS|Stored XSS payload submitted, but blocked by XSS defense: <script>alert('XSS - Attack 1')</script>
+2026-04-22 11:57:36|akshith|Stored XSS|XSS Attack 1 payload submitted via comment form: <script>alert('XSS - Attack 1')</script>
+2026-04-22 11:58:07|akshith|Stored XSS|Stored XSS payload submitted, but blocked by XSS defense: <script>alert('XSS - Attack 1')</script>
+2026-04-22 11:58:24|akshith|Stored XSS|XSS Attack 1 payload submitted via comment form: <script>alert('XSS - Attack 1')</script>
+2026-04-22 12:03:39|ridhi|Stored XSS|XSS Attack 1 payload submitted via comment form: <script>alert('XSS - Attack 1')</script>
+2026-04-22 12:03:59|ridhi|Stored XSS|Stored XSS payload submitted, but blocked by XSS defense: <script>alert('XSS - Attack 1')</script>
+2026-04-22 12:04:07|ridhi|Stored XSS|XSS Attack 1 payload submitted via comment form: <script>alert('XSS - Attack 1')</script>
+2026-04-22 12:06:14|akshith|Stored XSS|XSS Attack 1 payload submitted via comment form: <script>alert('XSS - Attack 1')</script>
+2026-04-22 12:06:33|akshith|Stored XSS|Stored XSS payload submitted, but blocked by XSS defense: <script>alert('XSS - Attack 1')</script>
+2026-04-22 13:39:39|hi|Stored XSS|XSS Attack 1 payload submitted via comment form: <script>alert('XSS - Attack 1')</script>
+2026-04-22 13:39:44|hi|Stored XSS|Stored XSS payload submitted, but blocked by XSS defense: <script>alert('XSS - Attack 1')</script>
+2026-04-22 13:39:46|hi|Stored XSS|Stored XSS payload submitted, but blocked by XSS defense: <script>alert('XSS - Attack 1')</script>

@@ -46,6 +46,9 @@ int readAttackHistory(struct AttackEvent *events, int maxEvents)
 
         // remove newline
         events[count].description[strcspn(events[count].description, "\n")] = 0;
+        if (strstr(events[count].type, "XSS") != NULL) {
+    strcpy(events[count].description, "[hidden for safety]");
+}
 
         count++;
     }
